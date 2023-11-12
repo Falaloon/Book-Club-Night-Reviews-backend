@@ -1,4 +1,3 @@
-
 const express = require("express");
 // const productRouter = require("./Routers/product");
 const { readdirSync } = require("fs");
@@ -6,7 +5,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const bodyParse = require("body-parser");
 const connectDB = require("./config/db");
-require("dotenv").config(); 
+require("dotenv").config();
 
 const app = express();
 //connect db
@@ -19,6 +18,10 @@ app.use(bodyParse.json({ limit: "10mb" }));
 
 readdirSync("./Routers").map((r) => {
   app.use("/api", require("./Routers/" + r));
+});
+
+app.use("/health", (res, req) => {
+  res.send("OK");
 });
 
 app.listen(5050, () => {
