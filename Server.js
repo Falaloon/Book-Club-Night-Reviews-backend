@@ -14,8 +14,7 @@ connectDB();
 
 //middleware
 app.use(morgan("dev"));
-app.use(cors({origin: ["https://book-club-night-reviews-fontend.vercel.app/"],
-credentials: true,}));
+app.use(cors());
 app.use(bodyParse.json({ limit: "10mb" }));
 
 readdirSync("./Routers").map((r) => {
