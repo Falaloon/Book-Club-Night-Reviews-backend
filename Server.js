@@ -16,9 +16,11 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyParse.json({ limit: "10mb" }));
 
-readdirSync("./Routers").map((r) => {
-  app.use("/api", require("./Routers/" + r));
-});
+// readdirSync("./Routers").map((r) => {
+//   app.use("/api", require("./Routers/" + r));
+// });
+
+app.use("/api", require("./Routers/product"));
 
 app.get("/health", async (req, res) => {
   res.send("OK");
