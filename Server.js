@@ -20,7 +20,7 @@ readdirSync("./Routers").map((r) => {
   app.use("/api", require("./Routers/" + r));
 });
 
-app.use("/health", (res, req) => {
+app.get("/health", async (req, res) => {
   res.send("OK");
 });
 
