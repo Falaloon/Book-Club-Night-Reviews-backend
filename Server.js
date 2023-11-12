@@ -16,10 +16,12 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyParse.json({ limit: "10mb" }));
 
+//อันนี้คือการเรียกใช้แบบไม่ต้องประกาศซ้ำ
 // readdirSync("./Routers").map((r) => {
 //   app.use("/api", require("./Routers/" + r));
 // });
 
+//นิยมท่านี้
 app.use("/api", require("./Routers/product"));
 
 app.get("/health", async (req, res) => {
