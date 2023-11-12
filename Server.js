@@ -14,7 +14,8 @@ connectDB();
 
 //middleware
 app.use(morgan("dev"));
-app.use(cors());
+app.use(cors({origin: ["http://localhost:5173/"],
+credentials: true}));
 app.use(bodyParse.json({ limit: "10mb" }));
 
 readdirSync("./Routers").map((r) => {
