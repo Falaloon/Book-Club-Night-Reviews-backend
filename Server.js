@@ -14,7 +14,7 @@ connectDB();
 
 //middleware
 app.use(morgan("dev"));
-app.use(cors({origin: ["http://localhost:5173/"],
+app.use(cors({origin: ["https://book-club-night-reviews-fontend.vercel.app/"],
 credentials: true}));
 app.use(bodyParse.json({ limit: "10mb" }));
 
